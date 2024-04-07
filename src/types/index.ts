@@ -1,0 +1,1 @@
+export type ProviderOAuth = 'github'|'google'|'discord';
