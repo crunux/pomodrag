@@ -11,7 +11,7 @@ store.value = myColorMode.value
   <nav flex w-screen h-[80px] my-4 py-4 left-0 z-[99] justify-around>
     <div font-bold font-ubuntu text-4xl>POMODRAG</div>
     <div flex gap-2 justify-center items-center>
-      <NuxtLink to="https://github.com/crunux" color-mountain-950 target="_blank" rel="noopener">
+      <NuxtLink to="https://github.com/crunux" color-mountain-950 dark:color-white target="_blank" rel="noopener">
         <div i-carbon-logo-github w-6 h-6 font-medium/>
       </NuxtLink>
       <div>
