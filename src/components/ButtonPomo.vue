@@ -9,7 +9,7 @@ defineProps<{
 
 </script>
 <template>
-    <Button m-2 p-2 flex justify-center items-center gap-1 hover:text-white bg-mountain-50>
+    <Button flex justify-center items-center gap-1 hover:text-white bg-mountain-50>
         <div  :class="icon"></div>
         <span>{{ label }}</span>
     </Button>
