@@ -1,7 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/supabase', '@unocss/nuxt', '@vueuse/nuxt',],
+  srcDir: 'src',
+  modules: ['@nuxtjs/supabase', '@unocss/nuxt', '@vueuse/nuxt', "@nuxt/image"],
   supabase: {
     url: process.env.SUPABASE_URL,
     key: process.env.SUPABASE_KEY,
@@ -14,8 +15,4 @@ export default defineNuxtConfig({
     }
   },
   css: ['@unocss/reset/tailwind-compat.css'],
-  build: {
-    transpile: ['primevue'],
-  },
-  srcDir: 'src'
 })
