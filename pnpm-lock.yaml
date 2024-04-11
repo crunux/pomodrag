@@ -22,6 +22,9 @@ devDependencies:
   '@iconify-json/carbon':
     specifier: ^1.1.31
     version: 1.1.31
+  '@nuxtjs/color-mode':
+    specifier: ^3.3.3
+    version: 3.3.3
   '@nuxtjs/supabase':
     specifier: ^1.2.0
     version: 1.2.0
@@ -1079,6 +1082,16 @@ packages:
       - vls
       - vti
       - vue-tsc
+
+  /@nuxtjs/color-mode@3.3.3:
+    resolution: {integrity: sha512-t6QM/tj1d/53xQ9JznNVIaqIfQWhjHRzNt5VqTxNeAJWG0HCdiHVezkUTMahPUgUbEJnBrtCoquUYwpyFhNF+Q==}
+    dependencies:
+      '@nuxt/kit': 3.11.2
+      pathe: 1.1.2
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: true
 
   /@nuxtjs/supabase@1.2.0:
     resolution: {integrity: sha512-HYII/FX4+39Rt+KLc9zlidNf43OGHvEf4xW+cKyL84Jky0BFuw7wYmCoHZdj7euBrKPnsp0lzPbrnvS+fE6kNA==}

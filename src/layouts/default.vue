@@ -3,15 +3,12 @@ import ButtonPomo from '~/components/ButtonPomo.vue';
 // variables
 const visibleLogout = ref(false)
 //composables
-const {store, system} = useColorMode();
+const colorMode = useColorMode();
 const user = useSupabaseUser()
 const route = useRoute()
 // computed
-const myColorMode = computed(() => store.value === 'auto' ? system.value : store.value);
-const iconsDark = computed(() => store.value === 'dark' ? 'i-carbon-sun' : 'i-carbon-moon');
 const currentRoute = computed(() => route.name === 'login' ? true: false)
 
-store.value = myColorMode.value
 
 const logoutUser = () => {
   console.log('logout');
@@ -26,7 +23,7 @@ const logoutUser = () => {
         <div i-carbon-logo-github w-6 h-6 font-medium/>
       </NuxtLink>
       <div>
-        <div :class="iconsDark" scale="2em" w-6 h-6 color-mountain-950 dark:color-white @click="store = store === 'dark' ? 'light' : 'dark'"/>
+        <div dark:i-carbon-sun i-carbon-moon size-6 dark:size-6 color-mountain-950 dark:color-white @click="colorMode.value = colorMode.value === 'dark' ? 'light' : 'dark'"/>
       </div>
       <NuxtLink to="/login" px-3 bg-mountain-400 p-4 rounded-xl color-mountain-900 hover:color-mountain-400 dark:color-white hover:bg-mountain-50 border="~ hover:mountain-400"  dark:color-black py-0.5 class="px-[3px]" :class="{'hidden': currentRoute}">
         <div i-carbon-user w-6 h-6 font-medium/>
