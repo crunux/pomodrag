@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import Button from 'primevue/button';
 defineProps<{
-    icon: string;
-    label: string;
+    icon?: string;
+    label?: string;
 
 }>();
 
 
 </script>
 <template>
-    <Button flex justify-center items-center gap-1 hover:text-white bg-mountain-50>
-        <div  :class="icon"></div>
-        <span>{{ label }}</span>
-    </Button>
+    <button rounded-xl flex justify-center items-center gap-1 hover:text-white >
+        <div v-if="icon" size-7 :class="icon"></div>
+        <span v-if="label">{{ label }}</span>
+        <slot/>
+    </button>
 </template>
