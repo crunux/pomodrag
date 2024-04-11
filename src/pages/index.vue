@@ -4,11 +4,10 @@
   import ButtonPomo from '~/components/ButtonPomo.vue';
   const user = useSupabaseUser()
   const { height } = useWindowSize()
-  const { timestamp, pause, resume } = useTimestamp({ controls: true })
   
   // const { chores, error  } = await useGetChoresSupabase()
-  // const { data: chores } = await useFetch('/api/chores');
-  // console.log(chores, 'chores');
+  const { data: chores } = await useFetch('/api/chores');
+  console.log(chores, 'chores');
 
   // onMounted(async () => {
   //   //const { data } = await useFetch('/api/chores');
@@ -31,7 +30,6 @@
     //     }
     // })
     const countPomo = ref(2)
-    const clock = ref(Date.time(timestamp))
     
 const chore = ref('')
 // const state = ref<StateChore>('new')
