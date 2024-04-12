@@ -16,6 +16,7 @@ export type Database = {
           id: number
           pomo: number
           status: Database["public"]["Enums"]["status"]
+          userId: string
         }
         Insert: {
           content: string
@@ -23,6 +24,7 @@ export type Database = {
           id?: number
           pomo?: number
           status?: Database["public"]["Enums"]["status"]
+          userId: string
         }
         Update: {
           content?: string
@@ -30,8 +32,17 @@ export type Database = {
           id?: number
           pomo?: number
           status?: Database["public"]["Enums"]["status"]
+          userId?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "public_chores_userId_fkey"
+            columns: ["userId"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {
