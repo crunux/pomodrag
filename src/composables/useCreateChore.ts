@@ -1,15 +1,17 @@
 import type { ChoreCreate } from '@/types/index';
 
 const useCreateChore = () => {
-    const client = useSupabaseClient();
+    const user = useSupabaseUser();
     const createChore = async (chore: ChoreCreate) => {
+        if (!user) return;
         const { content, status } = chore
-        // const response = await client.from('chores').insert({
-        //     content: content,
-        //     status: status ? status : ""
-        // })
+        const statusConfirm = status || 'new';
+        const { error } = await useFetch('/api/chores', {
+            method: 'POST',
+            body: { content: content, status: statusConfirm },
+        });
         return {
-            // response
+            error
         }
     }
     return {

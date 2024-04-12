@@ -6,11 +6,10 @@ export default defineEventHandler(async (event) => {
     const user = await serverSupabaseUser(event)
     const client = await serverSupabaseClient<Database>(event)
     if (!user) return
-    const { content, status, pomo, created_at, } = await readBody(event)
-    console.log(content, status, pomo, created_at, user.id);
+    const { content, status} = await readBody(event)
 
     try {
-        const { data, error } = await client.from('chores').insert({ content, status, pomo, created_at, userId: user.id }).select().then(response => response)
+        const { data, error } = await client.from('chores').insert({ content, status, userId: user.id }).select().then(response => response)
         console.log(data, error);
     } catch (error) {
         console.error(error)
