@@ -8,6 +8,7 @@ interface Timer {
 const usePomodoroTimer = () => {
 
     const isRunning = ref<boolean>(false)
+    const isPaused = ref<boolean>(false)
     const timerInstance = ref<Timeout>()
     const totalSeconds = ref<number>(25 * 60)
     const currentTimer = ref<number>(0)
@@ -31,6 +32,7 @@ const usePomodoroTimer = () => {
 
     const start = () => {
         isRunning.value = true
+        isPaused.value = false
         timerInstance.value = setInterval(() => {
             totalSeconds.value--
             if (totalSeconds.value <= 0) {
@@ -41,28 +43,40 @@ const usePomodoroTimer = () => {
         }, 1000)
     }
 
-    const stop = () => {
+    const pause = () => {
+
+        if (isPaused.value) {
+            isPaused.value = false
+            isRunning.value = true
+            start()
+            return
+        }
         isRunning.value = false
+        isPaused.value = !isPaused.value
         clearInterval(timerInstance.value)
     }
 
     const reset = () => {
-        stop()
+        isRunning.value = false
+        isPaused.value = false
         totalSeconds.value = timers[currentTimer.value].duration
+        clearInterval(timerInstance.value)
     }
 
     const changeCurrentTimer = (num: number) => {
         currentTimer.value = num
+        totalSeconds.value = timers[num].duration
     }
     return {
         // expose the following properties
         isRunning,
+        isPaused,
         currentTimer,
         // expose the following computed
         timer: computed(() => `${displayMinute.value}:${displaySecond.value}`),
         // expose the following methods
         start,
-        stop,
+        pause,
         reset,
         changeCurrentTimer,
     }
