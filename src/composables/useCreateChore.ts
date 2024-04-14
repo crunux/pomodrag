@@ -4,6 +4,7 @@ const useCreateChore = () => {
     const user = useSupabaseUser();
     const createChore = async (chore: ChoreCreate) => {
         if (!user) return;
+        if (!chore.content) return console.error('Content is required')
         const { content, status } = chore
         const statusConfirm = status || 'new';
         const { error } = await useFetch('/api/chores', {
