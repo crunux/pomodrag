@@ -20,4 +20,9 @@ export default defineNuxtConfig({
     preference: 'system',
     fallback: 'light',
   },
+  nitro: {
+    devProxy: {
+      host: '127.0.0.1',
+    },
+  },
 })
