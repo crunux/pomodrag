@@ -1,75 +1,19 @@
-# Nuxt 3 Minimal Starter
+# Pomodrag
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Pomodrag is a tool for managing time and getting better productivity, used a Pomodoro timer to focus on a chore and get better results and manage time in the moment work or if concentration is needed.
 
-## Setup
 
-Make sure to install the dependencies:
+Desing in [Figma](https://www.figma.com/file/H8kdTzxdLZ6W09S4mE6iyz/Pomodrag-App?type=design&node-id=0-1&mode=design&t=fu6kAXPDFk1Okx61-0)
 
-```bash
-# npm
-npm install
+### stack
 
-# pnpm
-pnpm install
+- Nuxt 3
+- Supabase
+- UnoCSS
+- vuedraggable
 
-# yarn
-yarn install
 
-# bun
-bun install
-```
+> Projects in process
 
-## Development Server
 
-Start the development server on `http://localhost:3000`:
 
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
