@@ -3,8 +3,7 @@ import type { ChoreCreate } from '@/types/index';
 const useCreateChore = () => {
     const user = useSupabaseUser();
     const createChore = async (chore: ChoreCreate) => {
-        if (!user) return;
-        if (!chore.content) return console.error('Content is required')
+        if (!user || !chore.content) return;
         const { content, status } = chore
         const statusConfirm = status || 'new';
         const { error } = await useFetch('/api/chores', {
