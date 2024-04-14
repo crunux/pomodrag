@@ -14,7 +14,7 @@ export default defineNuxtConfig({
       ]
     }
   },
-  css: ['@unocss/reset/tailwind-compat.css'],
+  css: ['@unocss/reset/tailwind.css'],
   colorMode: {
     classSuffix: '',
     preference: 'system',
