@@ -3,11 +3,12 @@ export type ProviderOAuth = 'github' | 'google' | 'discord';
 export type StateChore = 'new' | 'in-process' | 'done';
 
 export interface Chore {
-    id: string;
+    id: number;
     content: string;
     status: StateChore;
     pomo: number;
     created_at: string;
+    userId: string;
 }
 
 export interface ChoreCreate {
