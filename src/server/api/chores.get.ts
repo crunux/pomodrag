@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
     const { data: chores, error } = await client.from('chores').select('*').eq('userId', user.id).returns<Chore[]>().then(response => response)
     //const { data: chores, error } = await client.from('chores').select('*')
     return {
-        chores,
+        chores: chores as Array<Chore>,
         error
     }
 })
