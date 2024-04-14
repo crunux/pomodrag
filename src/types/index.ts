@@ -15,3 +15,13 @@ export interface ChoreCreate {
     content: string;
     status?: string;
 }
+
+export interface DragDropChore {
+    id: number, title: string, status: string, chores: Chore[]
+}
+
+export interface DragEvent extends Event {
+    added: { element: Chore } | undefined
+    removed: { element: Chore } | undefined
+    moved: { element: Chore } | undefined
+}
