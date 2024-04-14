@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col justify-between items w-10/12 md:w-10/12 lg:w-9/12 xl:w-7/12 h-[calc(100svh-1.25rem)]">
+  <div class="flex flex-col justify-between items w-10/12 lg:w-9/12 xl:w-7/12 h-full md:h-[calc(100svh-1.25rem)]">
     <NuxtLayout>
       <NuxtPage/>
     </NuxtLayout>
