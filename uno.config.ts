@@ -4,6 +4,7 @@ import {
     presetIcons,
     presetTypography,
     presetUno,
+    transformerDirectives,
 } from 'unocss'
 
 export default defineConfig({
@@ -31,6 +32,11 @@ export default defineConfig({
         presetAttributify(),
         presetIcons(),
         presetTypography(),
+    ],
+    transformers: [
+        transformerDirectives({
+            applyVariable: ['--at-apply', '--uno-apply', '--uno']
+        }),
     ],
     pipeline: {
         include: [
