@@ -55,11 +55,11 @@ const log  = (event: DragEvent) => {
 }
 </script>
 <template>
-    <div flex="~col" items-start overflow-x-auto gap-4>
+    <div flex="~ col" class="md:w-full" items-center justify-center gap-1 md:gap-4>
         <!-- <draggable v-model="chores" group="chores" item-key="id" flex="~ col" gap-4 overflow-x-auto items-start>
             <template #item="{element: card }: {element: DragDropChore}"> -->
-                <template v-for="card in chores" :key="card.id">
-                    <div w-150 h-40 bg-mountain-50 gap-4 rounded-md p-2 m-2 gap-2 cursor-grab>
+                <template v-for="card in chores" :key="card.id" >
+                    <div w-92 md:w-full h-40 bg-mountain-50 md:gap-4 rounded-md p-2 m-2 gap-2 cursor-grab>
                         <p font-bold :class="card.status">{{ card.title.toUpperCase() }}</p>
                         <draggable v-model="card.chores" :group="{name: 'chores', pull: true}" item-key="id" :animation="150" @change="handlerStatus($event as DragEvent, card.status as StateChore)">
                             <template #item="{element: chore }: { element: Chore}" :animation="150" >

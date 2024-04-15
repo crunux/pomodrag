@@ -1,5 +1,5 @@
 <template>
-  <div class="md:w-[45%] min-w-[278px]" h-full py-2 m-2 flex="~ col" justify-center items-start pl-0 lg:pl-10 rounded-md>
+  <div class="xl:w-[45%] w-screen md:w-11/12" h-full py-2 mt-3 md:mx-4 flex="~ col" justify-center items-start m-0 lg:pl-10 rounded-md>
         <InputCreate/>
         <ChoreBoard/>
     </div>

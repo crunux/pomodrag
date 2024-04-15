@@ -16,7 +16,7 @@ const logoutUser = () => {
 
 </script>
 <template>
-  <nav flex w-screen class="h-[80px]" md:my-4 py-4 left-0 z-99 justify-around>
+  <nav flex w-screen class="h-[60px] md:h-[80px]" md:my-4 py-4 left-0 z-99 justify-around>
     <div font-bold font-ubuntu color-mountain-500 text-4xl>POMODRAG</div>
     <div flex gap-2 justify-center items-center>
       <NuxtLink to="https://github.com/crunux" color-mountain-950 dark:color-white target="_blank" rel="noopener">
