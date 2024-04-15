@@ -27,6 +27,6 @@
     "@vueuse/nuxt": "^10.9.0"
   },
   "engines": {
-    "node": "18.17"
+    "node": "20.x"
   }
 }
