@@ -1,7 +1,6 @@
 <script setup lang="ts">
 useHead({
   title: 'Pomodrag',
-  link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
   meta: [
     {
       name: 'description',
