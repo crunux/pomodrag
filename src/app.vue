@@ -17,7 +17,7 @@ useHead({
     },
     {
       name: 'og:image',
-      content: 'https://pomodrag.crunux.me/pomodoro-portal.png'
+      content: 'https://pomodrag.crunux.me/og-cover.png'
     },
     {
       name: 'og:url',
