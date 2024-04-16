@@ -37,13 +37,13 @@ const usePomodoroTimer = () => {
         timerInstance.value = setInterval(() => {
             totalSeconds.value--
             if (totalSeconds.value <= 0) {
-                stop()
+                reset()
                 return
             }
             totalSeconds.value -= 1
         }, 1000)
     }
-
+    
     const pause = () => {
 
         if (isPaused.value) {
