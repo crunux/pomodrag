@@ -9,14 +9,13 @@ const route = useRoute()
 // computed
 const currentRoute = computed(() => route.name === 'login' ? true: false)
 
-
 const logoutUser = () => {
   console.log('logout');
 }
 
 </script>
 <template>
-  <nav flex w-screen class="h-[60px] md:h-[80px]" md:my-4 py-4 left-0 z-99 justify-around>
+  <nav flex justify-between items-center pt-7 pb-12 touch-manipulation>
     <div font-bold font-ubuntu color-mountain-500 text-4xl>POMODRAG</div>
     <div flex gap-2 justify-center items-center>
       <NuxtLink to="https://github.com/crunux" color-mountain-950 dark:color-white target="_blank" rel="noopener">
@@ -46,7 +45,7 @@ const logoutUser = () => {
     </div>
   </Dialog> -->
   <slot/>
-  <footer relative flex items-center justify-center left-5 bottom-0 w-screen class="h-[30px] m-[5px]" font-ubuntu font-semibold text-xl gap-1>
+  <footer flex items-center justify-center font-ubuntu font-semibold text-xl gap-1>
     Built by <a href="https://www.crunux.me"> @crunux</a>
   </footer>
 </template>
