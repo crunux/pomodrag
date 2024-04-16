@@ -5,6 +5,8 @@ Pomodrag is a tool for managing time and getting better productivity, used a Pom
 
 Desing in [Figma](https://www.figma.com/file/H8kdTzxdLZ6W09S4mE6iyz/Pomodrag-App?type=design&node-id=0-1&mode=design&t=fu6kAXPDFk1Okx61-0)
 
+Deploy [View](https://pomodrag.crunux.me)
+
 ### stack
 
 - Nuxt 3
