@@ -41,9 +41,9 @@ const useGetChoresSupabase = async (): Promise<useFetchReturn | undefined> => {
         choresInProcess: chores.value?.filter(chore => chore.status === 'in-process') as Chore[] || [],
         choresDone: chores.value?.filter(chore => chore.status === 'done') as Chore[] || [],
         chores: [
-            { id: 1, title: 'New Chores', status: 'new', chores: chores.value?.filter(chore => chore.status === 'new') as Chore[] || [] },
-            { id: 2, title: 'In-Process Chores', status: 'in-process', chores: chores.value?.filter(chore => chore.status === 'in-process') as Chore[] || [] },
-            { id: 3, title: 'Done Chores', status: 'done', chores: chores.value?.filter(chore => chore.status === 'done') as Chore[] || [] },
+            { id: 1, title: 'Todo', status: 'new', chores: chores.value?.filter(chore => chore.status === 'new') as Chore[] || [] },
+            { id: 2, title: 'In Process', status: 'in-process', chores: chores.value?.filter(chore => chore.status === 'in-process') as Chore[] || [] },
+            { id: 3, title: 'Done', status: 'done', chores: chores.value?.filter(chore => chore.status === 'done') as Chore[] || [] },
         ] as DragDropChore[],
         error: error.value || undefined,
     }

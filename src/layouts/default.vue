@@ -27,8 +27,7 @@ const logoutUser = () => {
       <NuxtLink to="/login" v-show="!user" px-3 bg-mountain-400 p-4 rounded-xl color-mountain-900 hover:color-mountain-400 dark:color-white hover:bg-mountain-50 border="~ hover:mountain-400"  dark:color-black py-0.5 class="px-[3px]" :class="{'hidden': currentRoute}">
         <div i-carbon-user w-6 h-6 font-medium/>
       </NuxtLink>
-      <NuxtImg v-show="user" v-if="user?.user_metadata.avatar_url" alt="avatar" :src="user?.user_metadata.avatar_url" h-9 border="~ mountain-700 dark:mountain-400" rounded-full mr-2 @click="visibleLogout = true" />
-      <div v-show="user" v-else h-9 border="~ mountain-700 dark:mountain-400" rounded-full mr-2 @click="visibleLogout = true" ></div>
+      <NuxtImg v-show="user" v-if="user?.user_metadata.avatar_url" name="avatar" alt="avatar" :src="user?.user_metadata.avatar_url" h-9 border="~ mountain-700 dark:mountain-400" rounded-full mr-2 @click="visibleLogout = true" />
     </div>
   </nav>
   <!-- <Dialog v-model:visible="visibleLogout" modal :style="{ width: '25rem' }">

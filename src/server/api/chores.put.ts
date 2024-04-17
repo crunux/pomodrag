@@ -4,7 +4,6 @@ import type { Database } from '~/types/database.types'
 
 export default defineEventHandler(async (event) => {
     const { field, chore } = await readBody(event)
-    console.log(field);
     const user = await serverSupabaseUser(event)
     const client = await serverSupabaseClient<Database>(event)
     if (!user || !field) return

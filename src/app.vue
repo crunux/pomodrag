@@ -1,6 +1,7 @@
 <script setup lang="ts">
 useHead({
   title: 'Pomodrag',
+  link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
   meta: [
     {
       name: 'description',
@@ -9,6 +10,14 @@ useHead({
     {
       name: 'og:title',
       content: 'Pomodrag'
+    },
+    {
+      name: 'og:site_name',
+      content: 'Pomodrag'
+    },
+    {
+      name: 'og:image:secure_url',
+      content: 'https://pomodrag.crunux.me/og-cover.png'
     },
     {
       name: 'og:description',
@@ -31,6 +40,10 @@ useHead({
       content: 'summary_large_image'
     },
     {
+      name: 'twitter:site',
+      content: '@crunux0'
+    },
+    {
       name: 'twitter:title',
       content: 'Pomodrag'
     },
@@ -40,18 +53,18 @@ useHead({
     },
     {
       name: 'twitter:image',
-      content: 'https://pomodrag.crunux.me/og-image.png'
+      content: 'https://pomodrag.crunux.me/og-cover.png'
     },
     {
-      name: 'twitter:url',
-      content: 'https://pomodrag.crunux.me'
+      name: 'twitter:image:secure_url',
+      content: 'https://pomodrag.crunux.me/og-cover.png'
     }
   ],
 })
 </script>
 <template>
   <div
-    class=" mx-auto flex flex-col justify-between items w-10/12 lg:w-9/12 xl:w-7/12 h-full md:h-[calc(100svh-1.25rem)]">
+    class=" mx-auto flex flex-col justify-between items w-10/12 md:w-9/12 xl:w-8/12 h-full md:h-[calc(100svh-1.25rem)]">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
