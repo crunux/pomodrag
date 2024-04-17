@@ -2,15 +2,15 @@ import type { Chore } from "~/types";
 
 const useUpdateChore = () => {
 
-    const updateChore = async (chore: Chore) => {
+    const updateChore = async (chore: Chore, field: string) => {
         const user = useSupabaseUser();
         // const choreResponse = ref<Chore | null>(null)
         // const error = ref<string | null>(null)
-        if (!chore || !user) return
+        if (!chore || !user || !field) return
         try {
             const { data } = await useFetch<Chore>('/api/chores', {
                 method: 'PUT',
-                body: { chore }
+                body: { chore, field }
             });
             console.log(data);
 
