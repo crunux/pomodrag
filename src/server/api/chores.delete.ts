@@ -7,10 +7,10 @@ export default defineEventHandler(async (event) => {
     const client = await serverSupabaseClient<Database>(event)
     const { id } = await readBody(event)
     if (!user) return
-    const { data: chores, error } = await client.from('chores').delete().eq('id', id).returns<Chore[]>().then(response => response)
-
+    const { error } = await client.from('chores').delete().eq('id', id)
     return {
-        chores: chores as Array<Chore>,
         error
     }
 })
+
+// .returns<Chore[]>().then(response => response)
