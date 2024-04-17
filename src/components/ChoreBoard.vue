@@ -1,58 +1,17 @@
 <script setup lang="ts">
     import type { Chore, DragDropChore, DragEvent, StateChore } from '~/types';
     import draggable from 'vuedraggable';
-    // const { chores } = (await useFetchChores()) ?? { chores: [] }
+    const { chores: data } = (await useFetchChores()) ?? { chores: [] }
     const user = useSupabaseUser()
-
-    const chores = ref<DragDropChore[]>([
-                { id: 0, title: "to do", status: 'new', chores: [{
-                        id: 24,
-                        created_at: '2024-04-12T04:09:38.446+00:00',
-                        content: 'test',
-                        status: 'new',
-                        pomo: 0,
-                        userId: '0071022a-3480-433d-88bc-eefa5418df0a'
-                    },
-                    {
-                        id: 13,
-                        created_at: '2024-04-12T04:09:38.446+00:00',
-                        content: 'test2',
-                        status: 'new',
-                        pomo: 0,
-                        userId: '0071022a-3480-433d-88bc-sdfbjsdbfh'
-                    }]
-                },
-                { id: 1, title: "in process", status: 'in-process', chores: [{
-                        id: 29,
-                        created_at: '2024-04-12T10:25:35.704+00:00',
-                        content: 'afro love',
-                        status: 'in-process',
-                        pomo: 2,
-                        userId: '0071022a-3480-433d-88bc-eefa5418df0a'
-                    }]
-                },
-                { id: 2, title: "done", status: 'done', chores: [{
-                        id: 23,
-                        created_at: '2024-04-12T10:25:35.704+00:00',
-                        content: 'i make to bet',
-                        status: 'done',
-                        pomo: 1,
-                        userId: '0071022a-3480-433d-88bc-f8wf8sd89'
-                    }]
-                },
-            ])
-    // const { updateChore } = useUpdateChore()
+    const { updateChore } = useUpdateChore()
+    const chores = ref<DragDropChore[]>(data)
+  
 
     const handlerStatus = (event: DragEvent ,status: StateChore) => {
         if(event.added?.element === undefined) return
         const chore = event.added.element as Chore
-        console.log(event);
         chore.status = status
-        // updateChore({ ...chore, status })
-    }
-
-    const log  = (event: DragEvent) => {
-        console.log(event)
+        updateChore({ ...chore, status }, "status")
     }
 </script>
 <template>
