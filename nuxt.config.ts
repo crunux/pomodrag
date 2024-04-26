@@ -1,18 +1,20 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   srcDir: 'src',
   modules: ['@nuxtjs/supabase', '@unocss/nuxt', '@vueuse/nuxt', "@nuxt/image", "@nuxtjs/color-mode"],
-  supabase: {
-    url: process.env.SUPABASE_URL,
-    key: process.env.SUPABASE_KEY,
-    redirectOptions: {
-      login: '/',
-      callback: '/confirm',
-      exclude: [
-        '/login',
-      ]
-    }
+  runtimeConfig: {
+    supabase: {
+      url: process.env.SUPABASE_URL || "",
+      key: process.env.SUPABASE_KEY,
+      redirectOptions: {
+        login: '/',
+        callback: '/confirm',
+        exclude: [
+          '/login',
+        ]
+      }
+    },
   },
   css: ['@unocss/reset/tailwind.css'],
   colorMode: {
@@ -25,4 +27,5 @@ export default defineNuxtConfig({
       host: '127.0.0.1',
     },
   },
+  "workspaceDir": "src",
 })

@@ -13,17 +13,18 @@
   },
   "dependencies": {
     "@nuxt/image": "^1.5.0",
+    "howler": "^2.2.4",
     "nuxt": "^3.11.2",
-    "vue": "^3.4.21",
-    "vue-router": "^4.3.0",
+    "vue": "^3.4.23",
+    "vue-router": "^4.3.2",
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.31",
-    "@nuxtjs/color-mode": "^3.3.3",
-    "@nuxtjs/supabase": "^1.2.0",
+    "@nuxtjs/color-mode": "^3.4.0",
+    "@nuxtjs/supabase": "^1.2.1",
     "@unocss/nuxt": "0.59.0-beta.1",
-    "@unocss/reset": "^0.59.0",
+    "@unocss/reset": "^0.59.4",
     "@vueuse/core": "^10.9.0",
     "@vueuse/nuxt": "^10.9.0"
   },
