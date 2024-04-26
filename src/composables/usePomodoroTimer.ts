@@ -15,7 +15,7 @@ const usePomodoroTimer = () => {
     const currentTimer = ref<number>(0)
     const timers = reactive<PomodoroTimer[]>([{ name: 'Pomodoro', duration: 25 * 60 }, { name: 'Short Break', duration: 5 * 60 }, { name: 'Long Break', duration: 15 * 60 }])
     const displayMinute = computed(() => {
-        const minutes = Math.floor(totalSeconds.value / 60)
+        const minutes = Math.trunc(totalSeconds.value / 60)
         return formatTime(minutes)
     })
     const displaySecond = computed(() => {
@@ -40,10 +40,9 @@ const usePomodoroTimer = () => {
                 reset()
                 return
             }
-            totalSeconds.value -= 1
         }, 1000)
     }
-    
+
     const pause = () => {
 
         if (isPaused.value) {
