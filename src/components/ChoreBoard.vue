@@ -5,7 +5,12 @@
     const user = useSupabaseUser()
     const { updateChore } = useUpdateChore()
     const chores = ref<DragDropChore[]>(data)
-  
+    
+    // const pomocount = inject<number>('countPomo')
+
+    // watch({ pomocount }, () => {
+    //     console.log(pomocount)
+    // })
 
     const handlerStatus = (event: DragEvent ,status: StateChore) => {
         if(event.added?.element === undefined) return
@@ -15,22 +20,17 @@
     }
 </script>
 <template>
-    <div flex="~ col" class="md:w-full" items-center justify-center gap-1 md:gap-4>
-        <!-- <draggable v-model="chores" group="chores" item-key="id" flex="~ col" gap-4 overflow-x-auto items-start>
-            <template #item="{element: card }: {element: DragDropChore}"> -->
-                <template v-show="!user" v-for="card in chores" :key="card.id" >
-                    <div w-92 md:w-full h-40 bg-mountain-400 md:gap-4 rounded-lg p-2 m-2 gap-2 cursor-grab>
-                        <p font-bold :class="card.status">{{ card.title.toUpperCase() }}</p>
-                        <draggable min-w-10 v-model="card.chores" :group="{name: 'chores', pull: true}" item-key="id" :animation="150" @change="handlerStatus($event as DragEvent, card.status as StateChore)">
-                            <template #item="{element: chore }: { element: Chore}" :animation="150">
-                                <ChoreCard m-0 pointer :chore="chore" />
-                            </template>
-                        </draggable>
-                    </div>
-                </template>
-            <!-- </template>
-            
-        </draggable> -->
+    <div flex="~ col" class="w-full" items-center justify-center gap-1 md:gap-4>
+        <template v-show="!user" v-for="card in chores" :key="card.id" >
+            <div w-full h-40 bg-mountain-900 md:gap-4 rounded-lg p-2 m-2 gap-2 cursor-grab>
+                <p font-bold :class="`${card.status}` ">{{ card.title.toUpperCase() }}</p>
+                <draggable min-w-10 v-model="card.chores" :group="{name: 'chores', pull: true}" item-key="id" :animation="150" @change="handlerStatus($event as DragEvent, card.status as StateChore)">
+                    <template #item="{element: chore }: { element: Chore}" :animation="150">
+                        <ChoreCard m-0 pointer :chore="chore" />
+                    </template>
+                </draggable>
+            </div>
+        </template>
     </div>
 </template>
 <style scoped>
