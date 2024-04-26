@@ -9,7 +9,7 @@ Deploy [View](https://pomodrag.crunux.me)
 
 ### stack
 
-- Nuxt 3
+- Nuxt 3 SSR
 - Supabase
 - UnoCSS
 - vuedraggable
