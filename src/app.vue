@@ -1,6 +1,9 @@
 <script setup lang="ts">
 useHead({
   title: 'Pomodrag',
+  htmlAttrs: {
+    lang: 'en'
+  },
   link: [
     // { rel: 'icon', type: 'image/ico', href: "/favicon.ico" },
     { rel: 'icon', type: 'image/png', sizes: "32x32", href: "/favicon-32x32.png" },
