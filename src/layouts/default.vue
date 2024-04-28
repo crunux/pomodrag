@@ -18,11 +18,11 @@ const logoutUser = () => {
   <nav flex justify-between items-center pt-7 pb-12 touch-manipulation>
     <div font-bold font-ubuntu color-mountain-500 text-4xl>POMODRAG</div>
     <div flex gap-2 justify-center items-center>
-      <NuxtLink to="https://github.com/crunux" color-mountain-950 dark:color-white target="_blank" rel="noopener">
+      <NuxtLink to="https://github.com/crunux" color-mountain-900 dark:color-white target="_blank" rel="noopener">
         <div i-carbon-logo-github w-6 h-6 font-medium name="github"/>
       </NuxtLink>
       <div>
-        <div dark:i-carbon-sun i-carbon-moon size-6 dark:size-6 color-mountain-950 dark:color-white @click="colorMode.value = colorMode.value === 'dark' ? 'light' : 'dark'"/>
+        <div dark:i-carbon-sun i-carbon-moon size-6 dark:size-6 color-mountain-900 dark:color-white @click="colorMode.value = colorMode.value === 'dark' ? 'light' : 'dark'"/>
       </div>
       <NuxtLink to="/login" v-show="!user" px-3 bg-mountain-400 p-4 rounded-xl color-mountain-900 hover:color-mountain-400 dark:color-white hover:bg-mountain-50 border="~ hover:mountain-400"  dark:color-black py-0.5 class="px-[3px]" :class="{'hidden': currentRoute}">
         <div i-carbon-user w-6 h-6 font-medium/>
