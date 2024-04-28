@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import LogoDark from '~/assets/DarkPomo.svg'
-import LogoLight from '~/assets/LightPomo.svg'
 // variables
 const visibleLogout = ref(false)
 //composables
 const colorMode = useColorMode();
 const user = useSupabaseUser()
 const route = useRoute()
+const { signOut } = useAuthSupabase()
 // computed
 const currentRoute = computed(() => route.name === 'login' ? true : false)
 
 const logoutUser = () => {
-  console.log('logout');
+  signOut()
 }
 
 </script>
@@ -70,6 +69,16 @@ const logoutUser = () => {
           h-6
           font-medium />
       </NuxtLink>
+      <!-- <ButtonPomo icon="i-carbon-logout"
+        px-2
+        color-coral
+        border-coral
+        hover:bg-coral
+        dark:color-white
+        dark:bg-coral
+        dark:hover:bg-mountain-50
+        dark:hover:color-coral
+        @click="logoutUser" /> -->
       <NuxtImg v-show="user"
         v-if="user?.user_metadata.avatar_url"
         name="avatar"

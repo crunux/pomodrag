@@ -7,14 +7,18 @@ export default defineNuxtConfig({
     supabase: {
       url: process.env.SUPABASE_URL || "",
       key: process.env.SUPABASE_KEY,
-      redirectOptions: {
-        login: '/',
-        callback: '/confirm',
-        exclude: [
-          '/login',
-        ]
-      }
     },
+    public: {
+      supabase:{
+        redirectOptions: {
+          login: '/',
+          callback: '/confirm',
+          exclude: [
+            '/login',
+          ]
+        }
+      }
+    }
   },
   css: ['@unocss/reset/tailwind.css'],
   colorMode: {

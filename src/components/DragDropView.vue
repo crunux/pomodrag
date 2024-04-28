@@ -1,3 +1,6 @@
+<script setup lang="ts">
+const user = useSupabaseUser()
+</script>
 <template>
   <div class="xl:w-9/12 w-full md:w-11/12"
     h-full
@@ -10,7 +13,7 @@
     m-0
     lg:pl-10
     rounded-md>
-    <InputCreate />
-    <ChoreBoard />
+    <InputCreate :disabled="!user" />
+    <ChoreBoard v-show="user" />
   </div>
 </template>

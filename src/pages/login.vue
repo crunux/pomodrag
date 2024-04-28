@@ -8,7 +8,7 @@ const { signInWithOAuth } = useAuthSupabase();
 
 <template>
   <div flex justify-center items-center >
-    <div class="w-screen lg:w-2/3 h-[100vhw - 0.5rem] md:h-70" flex="~ col" border="~ black" rounded-md justify-around items-center mt-10 my-4 p-2>
+    <div class="w-screen lg:w-2/3 h-[100vhw - 0.5rem] md:h-70" flex="~ col" border="~ black" rounded-md justify-around items-center mt-8 my-4 p-2>
       <div>
         <h3 text-5xl font-ubuntu font-bold>SignIn</h3>
         <p font-regular text-gray>To continue</p>
