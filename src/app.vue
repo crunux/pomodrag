@@ -64,7 +64,7 @@ useHead({
 </script>
 <template>
   <div
-    class=" mx-auto flex flex-col justify-between items w-10/12 md:w-9/12 xl:w-8/12 h-full md:h-[calc(100svh-1.25rem)]">
+    class=" mx-auto flex flex-col justify-between items w-10/12 md:w-11/12 xl:w-8/12 h-full md:h-[calc(100svh-1.25rem)]">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
