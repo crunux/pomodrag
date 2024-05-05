@@ -2,14 +2,20 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   srcDir: 'src',
-  modules: ['@nuxtjs/supabase', '@unocss/nuxt', '@vueuse/nuxt', "@nuxt/image", "@nuxtjs/color-mode"],
+  modules: [
+    '@nuxtjs/supabase',
+    '@unocss/nuxt',
+    '@vueuse/nuxt',
+    "@nuxt/image",
+    "@nuxtjs/color-mode",
+  ],
   runtimeConfig: {
     supabase: {
       url: process.env.SUPABASE_URL || "",
       key: process.env.SUPABASE_KEY,
     },
     public: {
-      supabase:{
+      supabase: {
         redirectOptions: {
           login: '/',
           callback: '/confirm',
@@ -18,6 +24,12 @@ export default defineNuxtConfig({
           ]
         }
       }
+    }
+  },
+  vueQuery: {
+    stateKey: 'vueQuery',
+    queryClientOptions: {
+      defaultOptions: { queries: { staleTime: 1000 * 60 } },
     }
   },
   css: ['@unocss/reset/tailwind.css'],
