@@ -8,9 +8,16 @@ export default defineEventHandler(async (event): Promise<Chore | unknown> => {
     const { content, status } = await readBody(event)
     if (!user) return
     try {
-        const { data } = await client.from('chores').insert({ content, status, userId: user!.id }).select().then(response => response)
+        const { error } = await client.from('chores').insert({ content, status, userId: user!.id }).select().then(response => response)
+        
+        if (error) return {
+            isSave: false,
+            save: 'no'
+        }
+
         return {
-            data
+            isSave: true,
+            save: 'ok'
         }
     } catch (error) {
         return {
