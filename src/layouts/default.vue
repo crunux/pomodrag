@@ -21,10 +21,7 @@ const logoutUser = () => {
     pt-7
     pb-12
     touch-manipulation>
-    <NuxtLink to="/"
-      class="logo-bar">
-      <LogoBar />
-    </NuxtLink>
+    <LogoBar v-model="colorMode" />
     <div flex
       gap-2
       justify-center
