@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import type { Chore } from '~/types';
-const { deleteChore } = useDeleteChores()
+
 interface Props {
   chore: Chore
 }
+
+const emit = defineEmits<{
+  (e: "deleteChore", id: number): void
+}>()
+
 defineProps<Props>()
 
-const handlerDeleteChore = async (id: number) => {
-  await deleteChore(id)
-}
 </script>
 <template>
   <div max-w-80
@@ -46,6 +48,6 @@ const handlerDeleteChore = async (id: number) => {
       hover:color-black
       invisible
       class="group-hover:visible"
-      @click="handlerDeleteChore(chore.id)" />
+      @click="emit('deleteChore', chore.id)" />
   </div>
 </template>

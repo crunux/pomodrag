@@ -1,24 +1,35 @@
 <script setup lang="ts">
-import type { Chore, DragDropChore, DragEvent, StateChore } from '~/types';
+import type { Chore, DragEvent, StateChore, GetDataResponse, DragDropChore } from '~/types';
 import draggable from 'vuedraggable';
-const { chores: data } = (await useFetchChores()) ?? { chores: [] }
+const { data, refresh } = await useGetChores() as GetDataResponse
 const { updateChore } = useUpdateChore()
-const chores = reactive<DragDropChore[]>(data)
+const { deleteChore } = useDeleteChores()
 
-// const pomocount = inject<number>('countPomo')
+console.log(data.value);
 
-// watch({ pomocount }, () => {
-//     console.log(pomocount)
-// })
+const chores = computed(() => [
+    { id: 1, title: 'Todo', status: 'new', chores: data?.value?.chores.filter((chore: Chore) => chore.status === 'new') as Chore[] || [] },
+    { id: 2, title: 'In Process', status: 'in-process', chores: data?.value?.chores.filter((chore: Chore) => chore.status === 'in-process') as Chore[] || [] },
+    { id: 3, title: 'Done', status: 'done', chores: data?.value?.chores.filter((chore: Chore) => chore.status === 'done') as Chore[] || [] },
+]) || [];
 
-const handlerStatus = (event: DragEvent, status: StateChore) => {
+const handlerStatus = async (event: DragEvent, status: StateChore) => {
     if (event.added?.element === undefined) return
     const chore = event.added.element as Chore
     chore.status = status
-    updateChore({ ...chore, status }, "status")
+    const { error } = await updateChore({ chore: { ...chore, status }, field: "status" })
+    console.log(error);
+    await refresh()
+}
+
+const handlerDeleteChore = async (id: number) => {
+    const { error } = await deleteChore(id) as { error: string | null }
+    console.log(error);
+    await refresh()
 }
 </script>
 <template>
+    <!-- <pre>{{ data }}</pre> -->
     <div flex="~ col"
         class="w-full"
         items-center
@@ -51,7 +62,8 @@ const handlerStatus = (event: DragEvent, status: StateChore) => {
                         :animation="150">
                         <ChoreCard m-0
                             pointer
-                            :chore="chore" />
+                            :chore="chore"
+                            @delete-chore="handlerDeleteChore" />
                     </template>
                 </draggable>
             </div>
@@ -65,10 +77,11 @@ const handlerStatus = (event: DragEvent, status: StateChore) => {
 
 .scroll-card::-webkit-scrollbar-thumb {
     background: #D0FBE8;
-    border-radius: 1em;  
+    border-radius: 1em;
 }
+
 .scroll-card::-webkit-scrollbar-thumb:hover {
-  background: #007C63; 
+    background: #007C63;
 }
 
 .card-drag {

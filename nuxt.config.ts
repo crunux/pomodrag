@@ -1,6 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+
+    timeline: {
+      enabled: true,
+    },
+  },
   srcDir: 'src',
   modules: [
     '@nuxtjs/supabase',
@@ -24,12 +30,6 @@ export default defineNuxtConfig({
           ]
         }
       }
-    }
-  },
-  vueQuery: {
-    stateKey: 'vueQuery',
-    queryClientOptions: {
-      defaultOptions: { queries: { staleTime: 1000 * 60 } },
     }
   },
   css: ['@unocss/reset/tailwind.css'],
