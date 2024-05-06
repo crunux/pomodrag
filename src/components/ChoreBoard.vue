@@ -5,8 +5,6 @@ const { data, refresh } = await useGetChores() as GetDataResponse
 const { updateChore } = useUpdateChore()
 const { deleteChore } = useDeleteChores()
 
-console.log(data.value);
-
 const chores = computed(() => [
     { id: 1, title: 'Todo', status: 'new', chores: data?.value?.chores.filter((chore: Chore) => chore.status === 'new') as Chore[] || [] },
     { id: 2, title: 'In Process', status: 'in-process', chores: data?.value?.chores.filter((chore: Chore) => chore.status === 'in-process') as Chore[] || [] },
