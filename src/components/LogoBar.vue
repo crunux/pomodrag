@@ -1,17 +1,13 @@
 <script setup lang="ts">
-//const colorMode = useColorMode();
-const colorMode = defineModel('colorMode');
+const colorMode = useColorMode();
 </script>
 <template>
     <NuxtLink to="/">
-        <img w-40
+        <NuxtImg w-40
             md:w-60
             lg:w-82
-            :src="colorMode === 'dark' ? 'assets/LightPomo.svg' : 'assets/DarkPomo.svg'"
-            alt="Pomodrag" />
-        <!-- <img v-show="colorMode.value === 'light'"
-            src="assets/DarkPomo.svg"
-            alt="Pomodrag" /> -->
+            :src="colorMode.value === 'dark'?'/images/logodark.png': '/images/logolight.png'"
+            alt="pomodrag logo" />
     </NuxtLink>
 
 </template>

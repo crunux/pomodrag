@@ -27,7 +27,6 @@ const handlerDeleteChore = async (id: number) => {
 }
 </script>
 <template>
-    <!-- <pre>{{ data }}</pre> -->
     <div flex="~ col"
         class="w-full"
         items-center
