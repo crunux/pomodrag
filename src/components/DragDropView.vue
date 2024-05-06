@@ -14,6 +14,6 @@ const user = useSupabaseUser()
     lg:pl-10
     rounded-md>
     <InputCreate :disabled="!user" />
-    <ChoreBoard />
+    <ChoreBoard v-show="!user" />
   </div>
 </template>
