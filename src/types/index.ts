@@ -26,7 +26,7 @@ export interface ReturnComposableCreate {
 }
 export interface GetDataResponse {
   // chores: DragDropChore[];
-  data: { chores: Chore[] } | null;
+  data: Chore[] | null;
   error: string | null;
   refresh: () => Promise<void>;
 }
