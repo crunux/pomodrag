@@ -35,7 +35,7 @@ export default defineNuxtConfig({
   css: ['@unocss/reset/tailwind.css'],
   colorMode: {
     classSuffix: '',
-    preference: 'system',
+    preference: 'dark',
     fallback: 'light',
   },
   nitro: {
