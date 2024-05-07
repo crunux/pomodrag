@@ -6,9 +6,9 @@ const { updateChore } = useUpdateChore()
 const { deleteChore } = useDeleteChores()
 
 const chores = computed(() => [
-    { id: 1, title: 'Todo', status: 'new', chores: data?.value?.chores.filter((chore: Chore) => chore.status === 'new') as Chore[] || [] },
-    { id: 2, title: 'In Process', status: 'in-process', chores: data?.value?.chores.filter((chore: Chore) => chore.status === 'in-process') as Chore[] || [] },
-    { id: 3, title: 'Done', status: 'done', chores: data?.value?.chores.filter((chore: Chore) => chore.status === 'done') as Chore[] || [] },
+    { id: 1, title: 'Todo', status: 'new', chores: unref(data)?.filter((chore: Chore) => chore.status === 'new') as Chore[] || [] },
+    { id: 2, title: 'In Process', status: 'in-process', chores: unref(data)?.filter((chore: Chore) => chore.status === 'in-process') as Chore[] || [] },
+    { id: 3, title: 'Done', status: 'done', chores: unref(data)?.filter((chore: Chore) => chore.status === 'done') as Chore[] || [] },
 ]) || [];
 
 const handlerStatus = async (event: DragEvent, status: StateChore) => {

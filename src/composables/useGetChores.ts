@@ -28,7 +28,7 @@ const useGetChores = async (): Promise<FetchDataResponse> => {
     });
 
     return {
-        data: computed(() => data?.value) as any,
+        data: computed(() => data?.value?.chores) as any,
         // chores: computed(() => chores.value) as any,
         error: error.value?.message || null,
         refresh,
