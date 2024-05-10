@@ -44,7 +44,9 @@ watch(() => [unref(timer)], () => {
         items-center
         m-2
         md:gap-3>
-        <ButtonPomo mx-2
+        <ButtonPomo tooltip
+          position="top"
+          mx-2
           px-2
           py-0.7
           hover:bg-mountain-400
@@ -56,8 +58,14 @@ watch(() => [unref(timer)], () => {
           label="short"
           aria-describedby="change-short-timer"
           @click="changeCurrentTimer(1)"
-          cursor-pointer />
-        <ButtonPomo px-2.7
+          cursor-pointer>
+          <template #tooltip>
+            Set short break
+          </template>
+        </ButtonPomo>
+        <ButtonPomo tooltip
+          position="top"
+          px-2.7
           py-0.7
           hover:bg-mountain-400
           bg-mountain-100
@@ -68,8 +76,13 @@ watch(() => [unref(timer)], () => {
           label="long"
           aria-describedby="change-long-timer"
           @click="changeCurrentTimer(2)"
-          cursor-pointer />
-        <ButtonPomo flex
+          cursor-pointer>
+          <template #tooltip>
+            Set long break
+          </template>
+        </ButtonPomo>
+        <ButtonPomo tooltip
+          position="top"
           justify-center
           text-md
           items-center
@@ -95,6 +108,9 @@ watch(() => [unref(timer)], () => {
             :class="i <= countPomo ? 'i-carbon-circle-filled bg-white group-hover:bg-mountain-900' : 'i-carbon-circle-solid bg-mountain-200 group-hover:bg-mountain-400'"
             v-for="i of 4"
             :key="i" />
+          <template #tooltip>
+            Middler click to reset pomos
+          </template>
         </ButtonPomo>
       </div>
       <div text-6xl
@@ -122,8 +138,8 @@ watch(() => [unref(timer)], () => {
           px-16
           py-2
           font-semibold
-          label="start"
-          icon=""
+          label=""
+          icon="i-carbon-play-filled-alt"
           aria-describedby="start-timer"
           @click="start" />
         <ButtonPomo v-if="isRunning || isPaused"
@@ -137,9 +153,10 @@ watch(() => [unref(timer)], () => {
           py-2
           font-semibold
           color-white
-          label="reset"
+          icon="i-carbon-stop-filled-alt"
           aria-describedby="reset-timer"
           @click="reset" />
+
         <ButtonPomo v-if="isRunning || isPaused"
           type="button"
           border="~ mountain-900 hover:mountain-400"
@@ -150,7 +167,7 @@ watch(() => [unref(timer)], () => {
           px-10
           md:px-16
           py-2
-          label="pause"
+          :icon="!isPaused ? 'i-carbon-pause-filled' : 'i-carbon-skip-forward-filled'"
           aria-describedby="pause-timer"
           @click="pause" />
       </div>
