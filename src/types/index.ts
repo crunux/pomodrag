@@ -4,32 +4,45 @@ export type ProviderOAuth = 'github' | 'google' | 'discord';
 export type StateChore = 'new' | 'in-process' | 'done';
 
 export interface Chore {
-    id: number;
-    content: string;
-    status: StateChore;
-    pomo: number;
-    created_at: string;
-    userId: string;
+  id: number;
+  content: string;
+  status: StateChore;
+  pomo: number;
+  created_at: string;
+  userId: string;
 }
 
 export interface ChoreCreate {
-    content: string;
-    status?: string;
+  content: string;
+  status?: string;
 }
 
+export interface CreateChoreResponse {
+  isCreate: boolean, error: string | null
+}
+
+export interface ReturnComposableCreate {
+  createChore: (chore: ChoreCreate) => Promise<CreateChoreResponse | { error: string | Error }>
+}
+export interface GetDataResponse {
+  // chores: DragDropChore[];
+  data: Chore[] | null;
+  error: string | null;
+  refresh: () => Promise<void>;
+}
 export interface DragDropChore {
-    id: number, title: string, status: string, chores: Chore[]
+  id: number, title: string, status: string, chores: Chore[]
 }
 
 export interface DragEvent extends Event {
-    added: { element: Chore } | undefined
-    removed: { element: Chore } | undefined
-    moved: { element: Chore } | undefined
+  added: { element: Chore } | undefined
+  removed: { element: Chore } | undefined
+  moved: { element: Chore } | undefined
 }
 
 
 export interface HowlStatic {
-  new (properties: HowlOptions): Howl
+  new(properties: HowlOptions): Howl
 }
 
 export type MaybeRef<T> = T | Ref<T> | ComputedRef<T>

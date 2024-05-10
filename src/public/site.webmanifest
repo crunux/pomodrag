@@ -1,6 +1,6 @@
 {
-    "name": "pomodrag",
-    "short_name": "pomodrag",
+    "name": "PomoDrag",
+    "short_name": "PomoDrag",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",

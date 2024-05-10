@@ -8,8 +8,8 @@ export default defineEventHandler(async (event) => {
     if (!user) return
     const { data: chores, error } = await client.from('chores').select('*').eq('userId', user.id).returns<Chore[]>().then(response => response)
     //const { data: chores, error } = await client.from('chores').select('*')
+    if (error) return error
     return {
-        chores: chores as Array<Chore>,
-        error
+        chores: chores as Array<Chore> ?? [],
     }
 })

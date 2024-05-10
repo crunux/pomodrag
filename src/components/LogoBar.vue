@@ -1,16 +1,12 @@
 <script setup lang="ts">
-const colorMode = useColorMode();
+const { value } = useColorMode();
 </script>
 <template>
-    <div w-40
-        md:w-60
-        lg:w-82>
-        <img v-show="colorMode.value === 'dark'"
-            src="assets/LightPomo.svg"
-            alt="Pomodrag" />
-        <img v-show="colorMode.value === 'light'"
-            src="assets/DarkPomo.svg"
-            alt="Pomodrag" />
-    </div>
-
+    <NuxtLink to="/">
+        <NuxtImg w-40
+            md:w-60
+            lg:w-82
+            :src="value === 'dark' ? '/images/logodark.png' : '/images/logolight.png'"
+            alt="pomodrag logo" />
+    </NuxtLink>
 </template>

@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import type { ChoreCreate } from '@/types'; // Add this import statement
-const { createChore } = useCreateChore()
+import type { ChoreCreate, GetDataResponse, ReturnComposableCreate } from '@/types'; // Add this import statement
 const user = useSupabaseUser()
+const { createChore } = useCreateChore() as ReturnComposableCreate
+const { refresh } = await useGetChores() as GetDataResponse
 
 const chore = reactive<ChoreCreate>({
   content: '',
@@ -9,9 +10,10 @@ const chore = reactive<ChoreCreate>({
 })
 
 const inputChore = async () => {
-  await createChore(chore)
+  const { error } = await createChore(chore)
   chore.content = ''
   chore.status = 'new'
+  await refresh()
 }
 
 </script>
