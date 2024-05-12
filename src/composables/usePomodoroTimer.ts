@@ -1,4 +1,4 @@
-import type { Timeout } from 'node'
+import type { Timeout } from 'node:timers'
 
 interface PomodoroTimer {
     name: string
@@ -37,7 +37,6 @@ const usePomodoroTimer = () => {
         timerInstance.value = setInterval(() => {
             totalSeconds.value--
             if (totalSeconds.value <= 0) {
-                
                 return
             }
         }, 1000)
