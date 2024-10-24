@@ -57,6 +57,7 @@ watch(() => [unref(timer)], () => {
           font-semibold
           label="short"
           aria-describedby="change-short-timer"
+          class="shortTiming"
           @click="changeCurrentTimer(1)"
           cursor-pointer>
           <template #tooltip>
@@ -75,6 +76,7 @@ watch(() => [unref(timer)], () => {
           font-semibold
           label="long"
           aria-describedby="change-long-timer"
+          class="longTiming"
           @click="changeCurrentTimer(2)"
           cursor-pointer>
           <template #tooltip>
@@ -98,13 +100,14 @@ watch(() => [unref(timer)], () => {
           text-white
           text-lg
           font-semibold
-          class="group"
+          class="group pomodoroTiming"
           label="Pomodoro"
           aria-describedby="change-pomodoro-timer"
           @click="changeCurrentTimer(0)">
           <span size-3
             md:size-3.5
             text-white
+            class="potTiming"
             :class="i <= countPomo ? 'i-carbon-circle-filled bg-white group-hover:bg-mountain-900' : 'i-carbon-circle-solid bg-mountain-200 group-hover:bg-mountain-400'"
             v-for="i of 4"
             :key="i" />
