@@ -25,6 +25,13 @@ export default defineConfig({
             },
             'golden': '#eda613',
             'coral': '#ec4646',
+            'primary': '',
+            'secundary': '',
+            'background': '',
+            'background-dark': '',
+            'foreground': '',
+            'foreground-dark': ''
+
         }
     },
     presets: [
