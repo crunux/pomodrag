@@ -56,6 +56,7 @@ watch(() => [unref(timer)], () => {
           color-mountain-700
           font-semibold
           label="short"
+          show-label
           aria-describedby="change-short-timer"
           class="shortTiming"
           @click="changeCurrentTimer(1)"
@@ -75,6 +76,7 @@ watch(() => [unref(timer)], () => {
           color-mountain-700
           font-semibold
           label="long"
+          show-label
           aria-describedby="change-long-timer"
           class="longTiming"
           @click="changeCurrentTimer(2)"
@@ -102,6 +104,7 @@ watch(() => [unref(timer)], () => {
           font-semibold
           class="group pomodoroTiming"
           label="Pomodoro"
+          show-label
           aria-describedby="change-pomodoro-timer"
           @click="changeCurrentTimer(0)">
           <span size-3
@@ -132,6 +135,8 @@ watch(() => [unref(timer)], () => {
         gap-2
         md:gap-3>
         <ButtonPomo v-show="!isRunning && !isPaused"
+        tooltip
+          position="bottom"
           bg="~ mountain-700"
           border="~ hover:mountain-900"
           type="button"
@@ -141,14 +146,21 @@ watch(() => [unref(timer)], () => {
           px-16
           py-2
           font-semibold
-          label=""
+          label="playTimer"
           icon="i-carbon-play-filled-alt"
           aria-describedby="start-timer"
-          @click="start" />
+          @click="start" >
+          <template #tooltip>
+            Start timer
+          </template>
+        </ButtonPomo>
         <ButtonPomo v-if="isRunning || isPaused"
+        tooltip
+          position="bottom"
           bg="~ mountain-700"
           border="~ mountain-900 hover:mountain-900"
           type="button"
+          label="resetTimer"
           hover:bg-mountain-100
           hover:color-mountain-900
           px-10
@@ -158,21 +170,32 @@ watch(() => [unref(timer)], () => {
           color-white
           icon="i-carbon-stop-filled-alt"
           aria-describedby="reset-timer"
-          @click="reset" />
+          @click="reset" >
+          <template #tooltip>
+            Stop timer
+          </template>
+        </ButtonPomo>
 
         <ButtonPomo v-if="isRunning || isPaused"
+        tooltip
+          position="bottom"
           type="button"
           border="~ mountain-900 hover:mountain-400"
           font-semibold
           bg-mountain-100
           color-mountain-900
           hover:bg-mountain-400
+          label="pauseTimer"
           px-10
           md:px-16
           py-2
           :icon="!isPaused ? 'i-carbon-pause-filled' : 'i-carbon-skip-forward-filled'"
           aria-describedby="pause-timer"
-          @click="pause" />
+          @click="pause" >
+          <template #tooltip>
+            Pause timer
+          </template>
+        </ButtonPomo>
       </div>
     </div>
   </div>

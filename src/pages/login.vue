@@ -14,9 +14,9 @@ const { signInWithOAuth } = useAuthSupabase();
         <p font-regular text-gray>To continue</p>
       </div>
       <div flex="~ col md:row" justify-center items-center gap-2>
-        <ButtonPomo label="Sign in with Github" icon="i-carbon-logo-github" m-2 p-2 bg-gray color-black border="~ black" hover:bg-black dark:bg-black dark:color-white dark:hover:bg-gray dark:hover:color-black @click="signInWithOAuth('github')"/>
-        <ButtonPomo label="Sign in with Google" icon="i-carbon-logo-google" m-2 p-2 bg-red-100 color-coral border="~ coral" hover:bg-coral dark:color-white dark:bg-coral dark:hover:bg-red-100 dark:hover:color-coral @click="signInWithOAuth('google')"/>
-        <ButtonPomo label="Sign in with Discord" icon="i-carbon-logo-discord" m-2 p-2 bg-purple-100 color-purple-900 border="~ purple-900" hover:bg-purple-900 dark:color-white dark:bg-purple-900 dark:hover:bg-purple-100 dark:hover:color-purple-900 @click="signInWithOAuth('discord')"/>
+        <ButtonPomo show-label label="Sign in with Github" icon="i-carbon-logo-github" m-2 p-2 bg-gray color-black border="~ black" hover:bg-black dark:bg-black dark:color-white dark:hover:bg-gray dark:hover:color-black @click="signInWithOAuth('github')"/>
+        <ButtonPomo show-label  label="Sign in with Google" icon="i-carbon-logo-google" m-2 p-2 bg-red-100 color-coral border="~ coral" hover:bg-coral dark:color-white dark:bg-coral dark:hover:bg-red-100 dark:hover:color-coral @click="signInWithOAuth('google')"/>
+        <ButtonPomo show-label  label="Sign in with Discord" icon="i-carbon-logo-discord" m-2 p-2 bg-purple-100 color-purple-900 border="~ purple-900" hover:bg-purple-900 dark:color-white dark:bg-purple-900 dark:hover:bg-purple-100 dark:hover:color-purple-900 @click="signInWithOAuth('discord')"/>
       </div>
     </div>
   </div>

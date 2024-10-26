@@ -16,13 +16,11 @@ const handlerStatus = async (event: DragEvent, status: StateChore) => {
     const chore = event.added.element as Chore
     chore.status = status
     const { error } = await updateChore({ chore: { ...chore, status }, field: "status" })
-    console.log(error);
     await refresh()
 }
 
 const handlerDeleteChore = async (id: number) => {
     const { error } = await deleteChore(id) as { error: string | null }
-    console.log(error);
     await refresh()
 }
 </script>

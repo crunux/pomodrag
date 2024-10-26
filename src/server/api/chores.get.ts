@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
     const user = await serverSupabaseUser(event)
     const client = await serverSupabaseClient<Database>(event)
     if (!user) return
-    const { data: chores, error } = await client.from('chores').select('*').eq('userId', user.id).returns<Chore[]>().then(response => response)
+    const { data: chores, error } = await client.from('chores').select('*').eq('user_id', user.id).returns<Chore[]>().then(response => response)
     //const { data: chores, error } = await client.from('chores').select('*')
     if (error) return error
     return {
